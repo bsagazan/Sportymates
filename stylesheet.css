@@ -1,0 +1,76 @@
+
+* {
+	margin: 0em;
+	background-color: #111111;
+	font-family: Bell MT, Verdana;
+	color: white;
+}
+
+#Logo {
+	padding: 1.7em;
+	padding-left: 1.0em;
+	height: 6em;
+	width: 7em;
+}
+
+
+img {
+	float: left;
+	background-color: white;
+}
+
+#identifiants {
+	float: right;
+	color: #111111;
+	font-weight: bold;
+	font-family: Bell MT,Verdana;
+	background-color: white;
+	padding: 0.50em;
+	padding-right: 0.50em;
+}
+
+input {
+	background-color: #EEEEEE;
+	border-radius: 3px;
+}
+
+h1 {
+	font-weight: bold;
+	color: #AA0600;
+	font-size: 2.7em;
+	text-shadow: 0px 30px 5px #EECA20;
+	padding: 1.20em;
+	padding-left: 10.2em; 
+	background-color: white;
+}
+
+#Un {
+	background-color: #440100;
+	height: 3.4em;
+	width: auto;
+}
+
+#lien {
+
+	background-color: #440100;
+	text-align: center;
+	color: #EEEEEE;
+	padding: 0.90em;
+}
+
+#recherche {
+	border-radius: 8px;
+}
+
+a {
+	text-decoration: none;
+	color: white;
+	background-color: #440100;
+}
+
+li h4:first-child {
+	padding-top: 1em;
+}
+.espace {
+	padding-top:8em;
+}
