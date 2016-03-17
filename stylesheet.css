@@ -30,23 +30,24 @@ img {
 }
 
 input {
-	background-color: #EEEEEE;
+	background-color: #FFEEEE;
 	border-radius: 3px;
 }
 
 h1 {
-	font-weight: bold;
+	font-weight: 1000;
 	color: #AA0600;
 	font-size: 2.7em;
-	text-shadow: 0px 30px 5px #EECA20;
+	text-shadow: 0em 1.9em 5.0em #000000;
 	padding: 1.20em;
-	padding-left: 10.2em; 
+	padding-left: 9em; 
 	background-color: white;
+	font-family: Engravers MT;
 }
 
 #Un {
 	background-color: #440100;
-	height: 3.4em;
+	height: 3.0em;
 	width: auto;
 }
 
@@ -55,7 +56,8 @@ h1 {
 	background-color: #440100;
 	text-align: center;
 	color: #EEEEEE;
-	padding: 0.90em;
+	padding: 0.70em;
+	font-size: 1.3em;
 }
 
 #recherche {
@@ -68,9 +70,78 @@ a {
 	background-color: #440100;
 }
 
-li h4:first-child {
+li h4 {
 	padding-top: 1em;
+	font-family: Engravers MT;
+	font-size: 1em;
+	border-bottom:1px solid white;
 }
 .espace {
-	padding-top:8em;
+	padding-top:20em;
 }
+li img {
+	height: 11em;
+	width: 20em;
+	padding-top: 3.5em;
+	background-color: #111111;
+	padding-left: 7em;
+}
+
+#img2 {
+	width: 13em;
+	padding-left: 3em;
+}
+#img3 {
+	padding-left: 4em;
+}
+
+#img4 {
+	width: 10em;
+}
+
+#img5 {
+	width: 13em;
+	padding-right: 3em;
+}
+
+li img:nth-child(5){
+	height: 4em;
+	width: 4em;
+	padding-top: 7em;
+	padding-left: 2em;
+}
+
+.profil {
+	height: 11em;
+	width: 11em;
+	padding-right: 5.0em;
+}
+
+#map {
+	float: right;
+	padding-right: 10em;
+}
+
+h6 {
+	font-family: Engravers MT;
+	font-size: 0.001;
+	color: black;
+	background-color: white;
+}
+
+
+#foot {
+	height: 10em;
+	width: auto;
+	background-color: #AAAAAA;
+}
+
+#foot p {
+	padding-top: 0.2em;
+	color: black;
+	background-color: #AAAAAA;
+	padding-left: 2em;
+	font-weight: bold;
+	font-size: 1.2em;
+}
+
