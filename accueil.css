@@ -1,0 +1,328 @@
+
+body
+{
+    background-color:#FEFEE2;
+    font-family: 'Trebuchet MS', Arial, sans-serif;
+    color: #181818;
+    height:100%;
+}
+
+*{
+  margin: 0;
+}
+.icon {
+  width: 16px;
+  height: 16px;
+  display: inline-block;
+}
+.icon-recherche {
+  background-image:("recherchericon.png");
+}
+
+#titre_principal
+{
+    font-family:fantasy;
+    font-size:15px;
+    display: flex;
+    flex-direction: column;
+}
+
+#logo
+{
+    display: flex;
+    flex-direction: row;
+    align-items: baseline;
+    text-align: center;
+}
+
+#logo img
+{
+    width: 95px;
+    height: 85px;
+    margin-top: 10px;
+}
+
+header
+{
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+}
+
+header h1
+{
+    font-family:century;
+    font-size: 2.1em;
+    font-weight: normal;
+    margin: 0 0 0 10px;
+    font-weight: bold;
+}
+
+#inscription
+{
+  right: 0;
+  position: absolute;
+  top: 0;
+  margin-right: 10px;
+  margin-top: 15px;
+}
+
+#inscription a
+{
+  font-style: italic;
+  font-family: century;
+  color:#040768;
+  padding-right: 15px;
+}
+
+#inscription input
+{
+  border-radius:2em;
+}
+ #inscription a:hover
+ {
+   color: #ED7F10;
+   font-weight: bolder;
+ }
+
+nav ul
+{
+    list-style-type: none;
+    display:flex;
+}
+strong
+{
+  font-size: 18px;
+}
+nav li
+{
+    margin-right: 15px;
+}
+
+nav a
+{
+    font-size: 1.3em;
+    color: #181818;
+    padding-bottom: 3px;
+    text-decoration: none;
+}
+
+nav a:hover
+{
+    color: #CC5500;
+    border-bottom: 3px solid #CC5500;
+}
+section
+{
+    background-color: #FEFDF0;
+    display:flex;
+    height:100%;
+    font-family:cursive;
+    width: auto;
+}
+section figcaption p
+{
+  margin-left: 99px;
+}
+section h1
+{
+ font-size: 1.5em;
+ margin-left: 158px;
+}
+#sports input
+{
+    margin-left: 150px;
+    margin-bottom: 15px;
+}
+
+.sportC img
+{
+  margin-right: 100px;
+}
+section img
+{
+  width: 250px;
+  height: 250px;
+  margin-left: 95px;
+  padding-right: 150px;
+}
+#map {
+			width: 700px;
+			height: 400px;
+			background-color: #CCC;
+		}
+#sports
+{
+  display: flex;
+  justify-content: space-between;
+
+}
+
+#banniere_image
+{
+    margin-top: 15px;
+    height: 550px;
+    border-radius: 6px;
+    background: url('banniere.jpg');
+    position: relative;
+    box-shadow: 0px 4px 4px #1c1a19;
+    margin-bottom: 28px;
+}
+
+#banniere_description
+{
+    position: absolute;
+    bottom: 0;
+    border-radius: 0px 0px 5px 5px;
+    width: 99.5%;
+    height: 33px;
+    padding-top: 15px;
+    padding-left: 4px;
+    background-color: rgba(24,24,24,0.8);
+    color: white;
+    font-size: 0.8em;
+
+}
+
+
+.bouton_rouge
+{
+    height: 25px;
+    position: absolute;
+    right: 5px;
+    bottom: 5px;
+    background: url('images/fond_degraderouge.png') repeat-x;
+    border: 1px solid #760001;
+    border-radius: 5px;
+    font-size: 1.2em;
+    text-align: center;
+    padding: 3px 8px 0px 8px;
+    color: white;
+    text-decoration: none;
+}
+
+.bouton_rouge img
+{
+    border: 0;
+}
+
+#Apropos
+{
+  display: flex;
+  font-size: 16px;
+  /*margin-left: 20px;*/
+  background-color: #eed2a7;
+  justify-content:space-between;
+}
+#Apropos h1
+{
+  margin-left: 300px;
+ }
+ #Apropos p
+ {
+   text-align: center;
+   padding-top: 20px;
+   font-size: 18px;
+   font-family:cursive;
+   margin-left: 100px;
+  }
+
+#membres
+{
+  display: flex;
+  justify-content:space-between;
+  background-color: ##dbc4a8;
+  width: auto;
+  height:100%;
+}
+#membres img
+{
+  margin-left: 90px;
+  width: 150px;
+  height: 150px;
+  margin-right: 250px;
+ }
+ #membres p
+ {
+   font-size: 16px;
+   font-family:cursive;
+   margin-left: 18px;
+ }
+ #membres h1
+ {
+   margin-left: 90px;
+   font-size: 17px;
+ }
+
+#contacts
+{
+  display: flex;
+  background-color:#ffcc66;
+  width: auto;
+  justify-content:space-between;
+}
+#contacts h1
+{
+  margin-left: 270px;
+ }
+#contacts p
+{
+  font-size: 18px;
+  font-family:cursive;
+  margin-left: 90px;
+  padding-top: 15px;
+  text-align: center;
+}
+
+#footer
+{
+  display: flex;
+  justify-content: space-between;
+  background-color:##d9d9d9;
+  height:100%;
+
+}
+
+#footer h1
+{
+  font-size:20px;
+  margin-left: 45px;
+}
+#footer a
+{
+  display: inline-block;
+  float: center;
+  padding-top: 5px;
+  color: black;
+  font-style: italic;
+  padding-bottom: 5px;
+  margin-left: 20px;
+
+}
+#footer p
+{
+  margin-left: 45px;
+}
+
+#footer img
+{
+  flex-flow: column;
+  margin-left:5px;
+  padding-bottom:5px;
+  padding-right:5px;
+  padding-top: 5px;
+  width: 30px;
+  height: 30px;
+}
+
+#footer a:hover
+{
+  margin-top: auto;
+  color: #CC5500;
+}
+
+.Copyright_et_mention_legales p
+{
+  padding-top:15px;
+  text-align: center;
+}

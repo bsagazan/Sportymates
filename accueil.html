@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <link rel="stylesheet" href="accueil.css" />
+        <title>Sportymates</title>
+        <link rel="icon" type="image/ico" href=logo3.png />
+    </head>
+
+    <body>
+            <header>
+                <div id="titre_principal">
+                    <div id="logo">
+                       <figure>
+                        <a href=accueil.html><img src="logo3.png" alt="Logo de Sportymates"/></a>
+                        <h1><figcaption><span style="color:red">S</span>portymates</figcaption></h1>
+                       </figure>
+                    </div>
+                </div>
+                <div id="inscription">
+                  <a href="inscrire.html">S'inscrire </a>
+                  <a href="connecter.html">Se connecter</a>
+                  <i class="icon icon-rechercher"></i>
+                  <input type='text' id='recherche' name='recherche' placeholder=Rechercher... size="20" maxlength="15" >
+
+                </div>
+                <nav>
+                    <ul>
+                        <li><a href="#">A propos |</a></li>
+                        <li><a href="#">Sports |</a></li>
+                        <li><a href="#">Nos groupes |</a></li>
+                        <li><a href="commentaire.php">Nos clubs |</a></li>
+                        <li><a href="#">Forum |</a></li>
+                        <li><a href="#">Aide</a></li>
+                    </ul>
+                </nav>
+            </header>
+
+            <div id="banniere_image">
+                <div id="banniere_description">
+                  <strong>L'évènement à ne pas rater!!</strong>
+                    <a href="#" class="bouton_rouge">S'inscrire <img src="images/flecheblanchedroite.png" alt="" /></a>
+                </div>
+            </div>
+
+                <section>
+                <div id="sports">
+                <div class="sportA">
+                   <figure id="un">
+                   <a href=sportA.html><img src="SportA.jpg" alt="photo sportA"/></a>
+                    <figcaption>
+                      <h1>Sport A</h1></br>
+                      <p>Ce sport est un sport qui  met en jeu...</br>Il se joue à...
+                      Il existe plusieurs groupes </br>dont notamment...</p>
+                       <input type="submit" value="Read more" ></code>
+                    </figcaption>
+                   </figure>
+                  </div>
+                <div class="sportB">
+                  <figure id="deux">
+                  <a href=sportB.html><img src="SportB.jpeg" alt="photo sportB"/></a>
+                  <figcaption>
+                     <h1>Sport B</h1></br>
+                     <p>Ce sport est un sport qui  met en jeu...</br>Il se joue à...
+                     Il existe plusieurs groupes </br>dont notamment...</p>
+                    <input type="submit" value="Read more" ></code>
+                  </figcaption>
+                  </div>
+                   <div class="sportC">
+                  <figure id="trois">
+                    <a href=SportC.html><img src="SportC.jpeg" alt="photo sportC"/></a>
+                    <h1>Sport C</h1></br>
+                    <figcaption>
+                      <p>Ce sport est un sport qui  met en</br> jeu...Il se joue à...
+                      Il existe plusieurs groupes </br>dont notamment...</p>
+                      <input type="submit" value="Read more" ></code>
+                  </figcaption>
+                 </figure>
+               </div>
+            </div>
+          </section>
+
+          <div id="Apropos">
+            <div class="texte">
+              <h1>A Propos</h1>
+              <p> On Sportymates you can find a sport partner near you. </br>
+                No matter if you are looking for a dancing partner, walking partner,</br>
+               a partner to play golf with, or any other sport: with more than</br>
+                ten thousand members, the chances are high that you will find a </br>
+                matching sport partner. Sportymates is set up for this specific reason,</br>
+                 namely matching sport partners in their local areas. This is why it has</br>
+                  been successful for years already .</p>
+           </div>
+           <div class="photos">
+             <img src="lieux.jpeg" alt="photo lieu">
+           </div>
+          </div>
+
+                <div id="membres">
+                  <div class="Membre1">
+                    <img src="nv1.png" alt="photo membre 1">
+                    <h1>Nouveau Membre 1</h1>
+                    <p> On va décrire un nouveau membre dire depuis quand  il est inscrit
+                      et tout et tout enfin je n'ai pas encore réfléchis à ce qu'on pourrais dire </p>
+                 </div>
+                 <div class="Membre2">
+                   <img src="nv2.png" alt="photo membre 2">
+                   <h1>Nouveau Membre 2</h1>
+                   <p> On va décrire un nouveau membre dire depuis quand  il est inscrit et tout
+                     et tout enfin je n'ai pas encore réfléchis à ce qu'on pourrais dire </p>
+                 </div>
+                 <div class="Membre3">
+                     <img src="nv3.png" alt="photo membre 3">
+                     <h1>Nouveau Membre 3</h1>
+                     <p> On va décrire un nouveau membre dire depuis </br>quand  il est inscrit et tout
+                       et tout enfin je</br> n'ai pas encore réfléchis à ce qu'on pourrais</br> dire </p>
+                </div>
+              </div>
+
+              <div id="contacts">
+                <div class="contacttexte">
+                  <h1> Nous Contacter</h1>
+                  <p>A deux pas des Halles, c'est en 1986 que Toni et Juliette</br>
+                     ouvrent Azteca, un endroit dédié à la fête et à la convivialité,</br>
+                      rue Sauval dans le 1er arrondissement de Paris. Au rez de chaussé, </br>
+                      quelques tables accueillent les amateurs de cuisine mexicaine en </br>
+                     toute décontraction. Richement décoré de tableaux, tapis mexicains,</br>
+                      montures de cavaliers et palmier fantaisie, c'est un endroit qui reunit</br>
+                       beaucoup d'habitués qui aiment discuter avec Toni et Simon qui sauront </br>
+                       vous raconter le Mexique avec passion.</p>
+               </div>
+               <div id="map"></div>
+               <script>
+                   function initMap() {// fonction qui va tourner une fois que la page est chargée
+                     var mapDiv = document.getElementById('map'); //JavaScript utilisation de getElementById
+                     var map = new google.maps.Map(mapDiv, {
+                       center: {lat: 44.540, lng: -78.546},
+                       mapTypeId:google.maps.MapTypeId.ROADMAP,
+                    /*  google.maps.MapTypeId.SATELLITE,
+                       google.maps.MapTypeId.HYBRID,
+                       google.maps.MapTypeId.TERRAIN,*/
+                       zoom: 9 //nombre entre 0 et 22 pour choisir l'agrandissement de la carte
+                     });
+                   }
+                 </script>
+                 <script src="https://maps.googleapis.com/maps/api/js?callback=initMap"   async defer></script>
+            </div>
+
+            <div id=footer>
+              <div class="Autres pages">
+                  <h1>Autre page</h1>
+                  <p><a href="Aide.html">Aide</a></br>
+                  <a href="Forum.html">Forum</a></br>
+                  <a href="Autre page.html">Autre page</a></p>
+              </div>
+                <div class="Réseaux sociaux">
+                   <h1>Réseaux sociaux</h1>
+                     <a href="https://www.facebook.com/Sportymates-1116430581702970/?ref=bookmarks"><img src="logofacebook.jpg" alt="Logo Facebook" /></a>
+                     <a href="https://twitter.com/sportymates?lang=fr"><img src="logo twitter.png" alt="Logo twitter" /></a>
+                     <a href="https://plus.google.com/"><img src="logo googleplus.png" alt="Logo google plus" /></a>
+                </div>
+                <div class="Copyright_et_mention_legales">
+                 <h1>Copyright et mention légales</h1>
+                 <p>© 2016  Sportymates</p>
+                </div>
+        </div>
+    </body>
+</html>
