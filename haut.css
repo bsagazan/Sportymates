@@ -1,0 +1,93 @@
+#titre_principal
+{
+    font-family:fantasy;
+    font-size:15px;
+    display: flex;
+    flex-direction: column;
+}
+
+#logo
+{
+    display: flex;
+    flex-direction: row;
+    align-items: baseline;
+    text-align: center;
+}
+
+#logo img
+{
+    width: 95px;
+    height: 85px;
+    margin-top: 10px;
+}
+
+header
+{
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+}
+
+header h1
+{
+    font-family:century;
+    font-size: 2.1em;
+    font-weight: normal;
+    margin: 0 0 0 10px;
+    font-weight: bold;
+}
+
+#inscription
+{
+  right: 0;
+  position: absolute;
+  top: 0;
+  margin-right: 10px;
+  margin-top: 15px;
+}
+
+#inscription a
+{
+  font-style: italic;
+  font-family: century;
+  color:#040768;
+  padding-right: 15px;
+}
+
+#inscription input
+{
+  border-radius:2em;
+}
+ #inscription a:hover
+ {
+   color: #ED7F10;
+   font-weight: bolder;
+ }
+
+nav ul
+{
+    list-style-type: none;
+    display:flex;
+}
+strong
+{
+  font-size: 18px;
+}
+nav li
+{
+    margin-right: 15px;
+}
+
+nav a
+{
+    font-size: 1.3em;
+    color: #181818;
+    padding-bottom: 3px;
+    text-decoration: none;
+}
+
+nav a:hover
+{
+    color: #CC5500;
+    border-bottom: 3px solid #CC5500;
+}
