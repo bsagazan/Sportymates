@@ -1,0 +1,356 @@
+@font-face {
+    font-family: 'anonymousregular';
+    src: url('font/Anonymous-webfont.eot');
+    src: url('font/Anonymous-webfont.eot?#iefix') format('embedded-opentype'),
+         url('font/Anonymous-webfont.woff') format('woff'),
+         url('font/Anonymous-webfont.ttf') format('truetype'),
+         url('font/Anonymous-webfont.svg#anonymousregular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+@font-face {
+    font-family: 'sf_cartoonist_hand_scitalic';
+    src: url('font/SF_Cartoonist_Hand_SC_Italic-webfont.eot');
+    src: url('font/SF_Cartoonist_Hand_SC_Italic-webfont.eot?#iefix') format('embedded-opentype'),
+         url('font/SF_Cartoonist_Hand_SC_Italic-webfont.woff') format('woff'),
+         url('font/SF_Cartoonist_Hand_SC_Italic-webfont.ttf') format('truetype'),
+         url('font/SF_Cartoonist_Hand_SC_Italic-webfont.svg#sf_cartoonist_hand_scitalic') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+@font-face {
+    font-family: 'dejavu_serifitalic';
+    src: url('font/DejaVuSerif-Italic-webfont.eot');
+    src: url('font/DejaVuSerif-Italic-webfont.eot?#iefix') format('embedded-opentype'),
+         url('font/DejaVuSerif-Italic-webfont.woff') format('woff'),
+         url('font/DejaVuSerif-Italic-webfont.ttf') format('truetype'),
+         url('font/DejaVuSerif-Italic-webfont.svg#dejavu_serifitalic') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+*
+{
+  margin: 0;
+}
+body
+{
+    background-color:#EFEFEF	;
+    font-family: 'Trebuchet MS', Arial, sans-serif;
+    color: #181818;
+    height:100%;
+}
+#wrapper
+  {
+   margin: auto;
+  }
+
+#map {
+  			width: 545px;
+  			height: 400px;
+  			background-color: #CCC;
+  		}
+#contacts
+    {
+      display: flex;
+      flex-flow: row;
+      justify-content: center;
+      margin-bottom: 10px;
+    }
+#contacts h1
+    {
+     margin-left: 175px;
+     margin-bottom: 10px;
+     margin-top: 20px;
+     font-family:sf_cartoonist_hand_scitalic;
+     }
+#contacts p
+    {
+      text-align: center;
+      font-size: 15px;
+      margin-left: 25px;
+      margin-right: 15px;
+      font-family:dejavu_serifitalic;
+  }
+#map,.contacttexte
+{
+  border: solid 1px white; margin-top: 35px;background-color: white;
+}
+
+ #apropos h2
+   {
+    margin-left: 250px;;
+    margin-bottom: 10px;
+    margin-top: 20px;
+    font-family:sf_cartoonist_hand_scitalic;
+  }
+#apropos
+{
+  display: flex;
+  flex-flow: row;
+  justify-content: center;
+}
+.photos,.texte{border: solid 1px white; margin-top: 35px;background-color: white}
+ #apropos p
+ {
+   text-align: center;
+   font-size: 15px;
+   margin-left: 25px;
+   margin-right: 15px;
+   font-family:dejavu_serifitalic;
+  }
+  .buttonapropos
+  {
+    margin-left:200px;
+    margin-top: 35px;
+    margin-bottom: 15px;
+    font-family: century;
+    background-color:#0c4c5a;
+    color: grey;
+    width: 16em;
+    border-radius: 1px;
+    border: 0 grey;
+    height: 3em;
+  }
+
+  #titreclub
+  {
+    text-align: center;
+    margin-bottom: 20px;
+    margin-top: 20px;
+    font-family:sf_cartoonist_hand_scitalic;
+  }
+  #clubs
+  {
+    display: flex;
+    justify-content: center;
+    flex-flow: row;
+  }
+   #clubs p
+   {
+     font-size: 16px;
+     font-family:cursive;
+     margin-left: 18px;
+   }
+
+   #clubs h2
+   {
+     font-size: 17px;
+     display: flex;
+     justify-content: center;
+     padding-top:75%;
+      }
+  #clubs a
+  {
+    color:white;
+  }
+  #clubs a:hover
+  {
+    color:black;
+  }
+
+  .ccolonne1,.ccolonne2,.ccolonne3
+  {
+    margin-top: 10px;
+    border: solid 1px grey ;
+    margin-bottom: 10px;
+    padding-right: 15px;
+    height: 300px;
+    width: 350px;
+    margin-right: 2%;
+
+  }
+  .ccolonne1
+  {
+    float: left;
+    width: 300px;
+    margin-left: 30px;
+    background: url('http://localhost/Sportymates1/images/c1.jpg')no-repeat;
+
+  }
+  .ccolonne2
+  {
+    overflow: hidden;
+    width: 300px;
+    background: url('http://localhost/Sportymates1/images/c2.jpg')no-repeat;
+  }
+  .ccolonne3
+  {
+    float: right;
+    width: 300px;
+    margin-right: 30px;
+    background: url('http://localhost/Sportymates1/images/c3.jpg')no-repeat;
+  }
+
+#titresection
+  {
+    text-align: center;
+    margin-bottom: 25px;
+    margin-top: 25px;
+    font-family:sf_cartoonist_hand_scitalic;
+  }
+  section img
+  {
+    width: 250px;
+    height: 250px;
+    margin-left: 95px;
+    padding-right: 150px;
+  }
+.buttonsport
+{
+  margin-left: 50%;
+  margin-bottom: 15px;
+  font-family: century;
+  background-color:#cbdae1;
+  color: grey;
+  width: 16em;
+  border-radius: 1px;
+  border: 0 grey;
+  height: 3em;
+}
+
+  section h1
+  {
+   font-size: 1.5em;
+   margin-left: 158px;
+  }
+#ligne1,#ligne2,#ligne3
+{
+  display: flex;
+  flex-flow: row;
+  justify-content: center;
+}
+.ligne1colonne1,.ligne1colonne2,.ligne2colonne1,.ligne2colonne2,.ligne2colonne3,.ligne3colonne1,.ligne3colonne2
+{
+  border: solid 1px grey;
+  height: 250px;
+  width: 250px;
+  margin-right: 20px;
+  margin-bottom: 20px;
+}
+.ligne1colonne1
+{
+  background: url('http://localhost/Sportymates1/images/SA.jpg')no-repeat;
+  padding-right: 15px;
+  width: 505px;
+  }
+.ligne1colonne2
+{
+  background: url('http://localhost/Sportymates1/images/SB.jpeg')no-repeat;
+  }
+.ligne2colonne1
+{
+  background: url('http://localhost/Sportymates1/images/SC.jpeg')no-repeat;
+  }
+.ligne2colonne2
+{
+  background: url('http://localhost/Sportymates1/images/SD.jpg')no-repeat;
+  }
+.ligne2colonne3
+  {
+    background: url('http://localhost/Sportymates1/images/SE.jpg')no-repeat;
+    }
+.ligne3colonne1
+{
+  background: url('http://localhost/Sportymates1/images/SF.jpg')no-repeat;
+  width: 505px;
+  padding-right: 15px;
+}
+.ligne3colonne2
+{
+  background: url('http://localhost/Sportymates1/images/SG.jpg')no-repeat;
+}
+#sports h3
+{
+  text-align: center;
+  padding-top: 100px;
+}
+
+#sports a
+{
+  color:white;
+}
+#sports a:hover
+{
+  color: black;
+}
+
+#events img
+{
+  height: 450px;
+  width: 1500px;
+}
+
+#titrecom
+{
+  text-align: center;
+  margin-bottom: 25px;
+  margin-top: 25px;
+  font-family:sf_cartoonist_hand_scitalic;
+}
+#communaute
+{
+  display: flex;
+  justify-content:space-between;
+  width: auto;
+  height:100%;
+}
+#communaute img
+{
+  margin-left: 90px;
+  width: 150px;
+  height: 150px;
+  margin-right: 250px;
+ }
+ #communaute p
+ {
+   font-size: 16px;
+   font-family:cursive;
+   margin-left: 18px;
+ }
+
+ #communaute h2
+ {
+   margin-left: 90px;
+   font-size: 17px;
+ }
+.colonne1,.colonne2,.colonne3,.colonne4
+{
+  margin-top: 10px;
+  border: solid 1px white;
+  margin-bottom: 20px;
+  height: 500px;
+  width: 300px;
+}
+.colonne1
+{
+  float: left;
+  margin-left: 20px;
+  background:url('http://localhost/Sportymates1/images/nv1.jpg');
+   color: black;
+}
+
+.colonne1 h2{  margin-top: 125%;  color: black;}
+
+.colonne2,.colonne3
+{
+  overflow: hidden;
+  color: black;
+}
+.colonne2 h2{  margin-top: 125%;  color:black;}
+.colonne2{
+  background:url('http://localhost/Sportymates1/images/nv2.jpg');
+
+}
+.colonne3 h2{  margin-top: 125%;  color: black;}
+.colonne3{  background:url('http://localhost/Sportymates1/images/nv3.jpg');}
+.colonne4
+{
+  float: right;
+  margin-right: 20px;
+  background:url('http://localhost/Sportymates1/images/nv4.jpg');
+   color: black;
+}
+.colonne4 h2{  margin-top: 125%;  color: black;}
