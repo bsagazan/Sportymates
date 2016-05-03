@@ -1,4 +1,4 @@
-+<?php
+<?php
     $dbname = "sportymates";
     $host='localhost';
     $user='root';
