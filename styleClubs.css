@@ -1,0 +1,352 @@
+*{
+    margin: 0;
+}
+
+#banniere_entete {
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    align-items: center;
+
+}
+
+#logo img {
+    width: 150px;
+    height:70px;
+    margin-right: 1em;
+}
+
+#Titre_Principal {
+    white-space: nowrap;
+    color:darkorange;
+
+}
+
+header h1:nth-child(2) {
+    text-align: center;
+    color: coral;
+    text-transform: uppercase;
+
+}
+
+nav ul {
+    list-style-type: none;
+    display: flex;
+}
+
+nav li {
+    margin-right: 15px;
+    display: inline-block;
+
+}
+
+nav a {
+    font-size: 1.3em;
+    color: #f8fada;
+    padding-bottom: 3px;
+    text-decoration: none;
+
+}
+
+nav a:hover
+{
+    
+    border-bottom: 3px solid coral;
+}
+#btnConnexInscrip {
+    width: 25%;
+    display: flex;
+    justify-content: space-around;
+    padding-right: 10px;
+}
+
+.bouton {
+    background-color: #ffa44f;
+    border-style:solid;
+    border-width : 2px;
+    border-color:#ffa44f;
+    padding: 5px 10px;
+    box-sizing: border-box;
+    font-size:13px;
+    font-weight: normal;
+    letter-spacing: 2px;
+    margin-right: 10px;
+    text-transform: uppercase;
+    color: white;
+    white-space: nowrap;
+    height: 2.5em;
+}
+
+.bouton:hover{
+    background-color: white;
+    color: #ffa44f;
+    cursor: pointer;
+}
+
+header {
+    background-image : url(../SM/images/club.jpg);
+    background-size:100% 100%;
+    height:20em;
+    display: flex;
+    flex-direction: column;
+    justify-content:space-between;
+}
+
+#Menu {
+    white-space: nowrap;
+    padding: 0.8em 0 0.8em 0;
+    background-color: rgba(70, 79, 82, 0.89);
+    display: flex;
+    justify-content: space-around;
+}
+
+#Titre_Principal h2 {
+    font-size: 15px;
+    color: blanchedalmond;
+}
+
+#logo {
+    display: flex;
+
+}
+
+section h2 {
+    text-align: center;
+    height: 2em;
+    line-height: 2em;
+    color: #ff8989;
+
+}
+
+#rechSimple {
+    display: flex;
+    justify-content: center; 
+
+}
+
+input[name="champ"] {
+    border-style: solid;
+    border-width: 1px;
+    border-color: #dddddd;
+    padding: 5px 10px;
+    width: 98.5%;
+    box-sizing: border-box;
+    font-size: 12px;
+    font-weight: normal;
+    /*letter-spacing: 1px;*/
+    margin-right: 1em;
+    white-space: nowrap;
+    height: 2.8em;
+}
+
+section #formRechSimple {
+    display: flex;
+    justify-content: space-between;
+    width: 80%
+
+}
+
+#AfficherRechAvancee {
+    width: 25em;
+
+}
+
+#RechAvancee {
+    margin-top: 2em;
+    background-color: #ffe3af;
+    vertical-align: baseline;
+    padding: 2em;
+    position: relative;
+}
+
+#critereDroite label {
+    width: 150px;
+    display: inline-block
+
+
+
+}
+
+/*input {
+width:auto;
+height: 13px;
+padding: 0;
+margin:0;
+vertical-align: bottom;
+position: relative;
+top: -1px;
+overflow: hidden;*/
+
+}
+
+#critereGauche label {
+    display: block;
+    width: 150px;
+    float: left;
+
+
+}
+
+#bloc_page {
+    min-width: 1100px;
+    background-color:#ebebeb
+}
+
+#RechAvancee form {
+    display: flex;
+    justify-content: space-around;
+
+}
+
+#RechAvancee input[name="champ"] {
+    width: 250px;
+
+}
+
+#critereGauche {
+    margin-right: 1em;
+
+}
+
+#critereDroite {
+    width:  30em;
+
+}
+
+
+#ajout_recent {
+    display: flex;
+    justify-content: space-around;
+    padding-bottom: 5em;
+    padding-top: 2em;
+
+}
+
+#ajout_recent img {
+    height: 20em;
+    width: 20em;
+}
+
+
+#footer
+{
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    background: url(../SM/images/fond_footer.jpg)repeat;
+    height:100%;
+}
+
+
+#footer h2
+{
+    font-size:18px;
+    margin-left: 50px;
+    color: white;
+    padding-top: 15px;
+    font-family: anonymousregular;
+}
+
+#footer a
+{
+    display: inline-block;
+    float: center;
+    padding-top: 5px;
+    color: grey;
+    font-style: italic;
+    padding-bottom: 10px;
+    margin-left: 20px;
+
+}
+#footer p
+{
+    margin-left: 30px;
+    color: grey;
+}
+
+#footer img
+{
+    flex-flow: column;
+    margin-left:8px;
+    margin-right: 15px;
+    padding-bottom:5px;
+    padding-right:5px;
+    padding-top: 10px;
+    width: 30px;
+    height: 30px;
+}
+
+#footer a:hover
+{
+    margin-top: auto;
+    color: #D3D3D3;
+}
+
+.finfooter p
+{
+    padding-top:15px;
+    padding-bottom:25px;
+}
+.hr
+{
+    color: grey;
+    margin-top: 20px;
+    width:700px;
+    margin:auto;
+}
+
+
+#groupeRecent {
+    background-color: white;
+
+}
+
+#bloc_rech {
+    padding: 2em 0 5em 0;
+    display: flex;
+    flex-direction: column;
+
+}
+
+figcaption {
+    text-align: center;
+    font-size: 20px;    
+}
+
+#carte {
+    padding-bottom: 5em;
+    padding-top: 2em;
+    display: flex;
+    justify-content: center;
+}
+
+#formRechSimple {
+    display: flex;
+}
+
+
+
+#Rech {
+    display: flex;
+}
+
+.bouton[value=Rechercher] {
+    height: 2.5em;
+    width: 10em;
+    align-self: center;
+}
+
+#bloc_rech .bouton[value="Rechercher"] {
+    margin-top: 2em;
+
+}
+
+
+figure a {
+    text-decoration: none;
+    color: coral;
+}
+
+figure a:hover {
+    text-decoration: overline;
+}
