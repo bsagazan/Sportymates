@@ -1,0 +1,112 @@
+
+body
+{
+  background-color: #FFFFFF;
+  font-family: 'Trebuchet MS', Arial, sans-serif;
+  color: #181818;
+  height:100%;
+  background: url('dada.png');
+}
+
+*{
+  margin: 0;
+}
+
+/* page Mon profil */
+#bande {
+	height: 55em;
+	width: 10em;
+	background-color: #333333;
+	float: left;
+  box-shadow: 2px 2px 4px 4px  #333333;
+}
+
+#Photo {
+	float: left;
+	height: 55em;
+}
+
+#Profil {
+	margin-left: 2.5em;
+	margin-top: 2em;
+	width: 6.5em;
+	height: 8em;
+	background-color: #EEEEEE;
+}
+
+h5 {
+  padding-top: 1em;
+	padding-left: 1em;
+}
+
+h2 {
+	font-weight: bold;
+	padding-top: 2em;
+	padding-left: 18em;
+	padding-bottom: 1.5em;
+}
+
+#formulaire {
+	float: left;
+}
+#formulaire p {
+	padding-left: 2em;
+	padding-bottom: 1.5em;
+	font-size: 1.1em;
+}
+
+#Champs p {
+	padding-left: 32em;
+	padding-bottom: 1.55em;
+}
+
+#FinFormulaire p {
+	padding-bottom: 1.55em;
+}
+
+#FinFormulaire p:nth-child(3) {
+	padding-bottom: 4
+}
+
+#BoutonFin {
+	padding-left: 3em;
+}
+#BoutonFin p:hover {
+	padding-left: 3em;
+	color: white;
+}
+#BoutonFin p{
+	padding-bottom: 3.5em;
+}
+
+.Bouton  {
+	padding-top: 2em;
+	padding-bottom: 2em;
+	color: white;
+	font-size: 1.3em;
+	text-align: center;
+	font-weight: bold;
+	background-color: #333333;
+}
+
+.Bouton:first-child {
+	color: black;
+	background-color: #888888;
+  margin: 5px 5px 5px 5px; 
+  box-shadow: 1px 1px 1px 1px #888888;
+}
+
+.Bouton:hover {
+	color: black;
+	background-color: #888888;
+  margin: 5px 5px 5px 5px; 
+  box-shadow: 1px 1px 1px 1px #888888;
+}
+
+
+.Copyright_et_mention_legales p
+{
+  padding-top:15px;
+  text-align: center;
+}
+
