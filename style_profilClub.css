@@ -1,0 +1,307 @@
+*{
+    margin: 0;
+}
+
+#bloc_page{
+    background-color:#ebebeb
+}
+
+#banniere_entete {
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    align-items: center;
+
+}
+
+#logo img {
+    width: 150px;
+    height:70px;
+    margin-right: 1em;
+}
+
+#Titre_Principal {
+    white-space: nowrap;
+    color:darkorange;
+
+}
+
+#Titre{
+    height: 30%;
+    width: 30%;
+    align-self: center;
+    padding: 1em;
+    background-color:rgba(255, 255, 255, 0.58);
+
+}
+#Titre h1{
+    flex-wrap: nowrap;
+    padding: 0;
+    text-align: center;
+    color :#ffffff; 
+    text-shadow: 3px 3px 6px rgb(0, 0, 0);
+
+}
+
+nav ul {
+    list-style-type: none;
+    display: flex;
+}
+
+nav li {
+    margin-right: 15px;
+    display: inline-block;
+
+}
+
+nav a {
+    font-size: 1.3em;
+    color: #f8fada;
+    padding-bottom: 3px;
+    text-decoration: none;
+
+}
+
+nav a:hover
+{
+    border-bottom: 3px solid coral;
+}
+#btnConnexInscrip {
+    width: 25%;
+    display: flex;
+    justify-content: space-around;
+    padding-right: 10px;
+}
+
+.bouton {
+    background-color: #ffa44f;
+    border-style:outset;
+    border-width : 2px;
+    border-color:#ffa44f;
+    padding: 5px 10px;
+    box-sizing: border-box;
+    font-size:13px;
+    font-weight: normal;
+    letter-spacing: 2px;
+    margin-right: 10px;
+    text-transform: uppercase;
+    color: white;
+    white-space: nowrap;
+    height: 2.5em;
+}
+
+.bouton:hover{
+    background-color: white;
+    color: #ffa44f;
+    cursor: pointer;
+}
+
+.bouton[value=Rechercher] {
+    height: 2.5em;
+    width: 10em;
+    align-self: center;
+}
+
+header {
+    background-image : url(../SM/images/foresthillaqua.jpg);
+    background-size:100% 20em;
+    height:20em;
+    display: flex;
+    flex-direction: column;
+    justify-content:space-between;
+
+}
+
+#Menu {
+    white-space: nowrap;
+    padding: 0.8em 0 0.8em 0;
+    background-color: rgba(70, 79, 82, 0.89);
+    display: flex;
+    justify-content: space-around;
+}
+
+input[name="champ"] {
+    border-style: solid;
+    border-width: 1px;
+    border-color: #dddddd;
+    padding: 5px 10px;
+    width: 98.5%;
+    box-sizing: border-box;
+    font-size: 12px;
+    font-weight: normal;
+    /*letter-spacing: 1px;*/
+    margin-right: 1em;
+    white-space: nowrap;
+    height: 2.8em;
+}
+
+#formRechSimple {
+    display: flex;
+}
+
+#footer
+{
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    background: url(../SM/images/fond_footer.jpg)repeat;
+    height:100%;
+}
+
+
+#footer h2
+{
+    font-size:18px;
+    margin-left: 50px;
+    color: white;
+    padding-top: 15px;
+    font-family: anonymousregular;
+}
+
+#footer a
+{
+    display: inline-block;
+    float: center;
+    padding-top: 5px;
+    color: grey;
+    font-style: italic;
+    padding-bottom: 10px;
+    margin-left: 20px;
+
+}
+#footer p
+{
+    margin-left: 30px;
+    color: grey;
+}
+
+#footer img
+{
+    flex-flow: column;
+    margin-left:8px;
+    margin-right: 15px;
+    padding-bottom:5px;
+    padding-right:5px;
+    padding-top: 10px;
+    width: 30px;
+    height: 30px;
+}
+
+#footer a:hover
+{
+    margin-top: auto;
+    color: #D3D3D3;
+}
+
+.finfooter p
+{
+    padding-top:15px;
+    padding-bottom:25px;
+}
+
+.hr
+{
+    color: grey;
+    margin-top: 20px;
+    width:700px;
+    margin:auto;
+}
+
+
+
+#bloc_centre {
+    display: flex;
+    flex-wrap: nowrap;
+    padding: 2%;
+
+
+}
+
+section div {
+    margin: 0% 2% 2% 2%;
+    box-shadow: 2px 2px 6px #8d8d8d;
+    background-color: white;
+    padding-bottom: 2%;
+    text-align: center;
+
+}
+
+
+
+#gauche {
+    width: 65%;   
+
+}
+
+#droite {
+    width: 35%;
+}
+
+div h1 {
+    text-align: center;
+    color: #606565;
+    margin: 0 10%
+}
+
+#description p {
+    text-align: justify;
+    padding: 3% 10%;
+}
+
+h1 {
+    padding: 2%;
+}
+
+
+
+#carte {
+
+    padding-top: 2em;
+    display: flex;
+    justify-content: center;
+    box-shadow: none;
+}
+
+div img {
+    width: 30%;
+    vertical-align: middle;
+    margin: 1%;
+    background-color: ;
+
+}
+
+#album {
+    box-shadow: none;
+    padding: 4% 1%;
+    background-color: #ebebeb;
+}
+
+
+#icon {
+    box-shadow: none;
+    padding: 5%;
+}
+
+#adresse {
+    box-shadow: none;
+    width: 45%;
+    
+}
+
+h2 {
+    padding-bottom: 5%
+}
+
+
+
+#informations {
+    padding-bottom: 10%;
+}
+
+#Titre img {
+    width: 8%;
+}
+
+#Titre div {
+    text-align: center;
+}
