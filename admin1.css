@@ -1,0 +1,272 @@
+@font-face {
+    font-family: 'anonymousregular';
+    src: url('font/Anonymous-webfont.eot');
+    src: url('font/Anonymous-webfont.eot?#iefix') format('embedded-opentype'),
+         url('font/Anonymous-webfont.woff') format('woff'),
+         url('font/Anonymous-webfont.ttf') format('truetype'),
+         url('font/Anonymous-webfont.svg#anonymousregular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+@font-face {
+    font-family: 'sf_cartoonist_hand_scitalic';
+    src: url('font/SF_Cartoonist_Hand_SC_Italic-webfont.eot');
+    src: url('font/SF_Cartoonist_Hand_SC_Italic-webfont.eot?#iefix') format('embedded-opentype'),
+         url('font/SF_Cartoonist_Hand_SC_Italic-webfont.woff') format('woff'),
+         url('font/SF_Cartoonist_Hand_SC_Italic-webfont.ttf') format('truetype'),
+         url('font/SF_Cartoonist_Hand_SC_Italic-webfont.svg#sf_cartoonist_hand_scitalic') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+@font-face {
+    font-family: 'dejavu_serifitalic';
+    src: url('font/DejaVuSerif-Italic-webfont.eot');
+    src: url('font/DejaVuSerif-Italic-webfont.eot?#iefix') format('embedded-opentype'),
+         url('font/DejaVuSerif-Italic-webfont.woff') format('woff'),
+         url('font/DejaVuSerif-Italic-webfont.ttf') format('truetype'),
+         url('font/DejaVuSerif-Italic-webfont.svg#dejavu_serifitalic') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+
+body
+{
+    background-color:#EFEFEF	;
+    font-family: 'Trebuchet MS', Arial, sans-serif;
+    color: #181818;
+    height:100%;
+}
+
+*
+{
+  margin: 0;
+}
+
+#wrapper
+  {
+   margin: auto;
+  }
+
+  #logo
+  {
+      display: flex;
+      flex-direction: row;
+      align-items: baseline;
+      text-align: center;
+  }
+
+  #logo img
+  {
+      width: 100px;
+      height: 95px;
+      margin-top: 10px;
+  }
+
+  #inscription
+  {
+    right: 0;
+    position: absolute;
+    top: 0;
+    margin-right: 10px;
+    margin-top: 15px;
+  }
+  #inscription a
+  {
+    font-style: italic;
+    font-family:sf_cartoonist_hand_scitalic;
+    color:white;
+    padding-right: 15px;
+  }
+   #inscription a:hover
+   {
+     color: grey;
+     font-weight: bolder;
+   }
+
+  nav
+  {
+    display: flex;
+    justify-content: center;
+  }
+  nav ul
+  {
+      list-style-type: none;
+      display:flex;
+  }
+  nav li
+  {
+      margin-right: 15px;
+  }
+  nav a
+  {
+      font-size: 1.1em;
+      color:white;
+      padding-bottom: 3px;
+      text-decoration: none;
+      font-family:dejavu_serifitalic;
+  }
+  nav a:hover
+  {
+      color:grey;
+      border-bottom: 3px solid grey;
+  }
+
+  #rechercher
+  {
+    justify-content:space-between;
+     display: inline-block;
+     padding-bottom: 7px;
+  }
+  #rechercher button
+  {
+    width: 20px;
+    height: 20px;
+    border:0;
+  }
+  #rechercher img
+  {
+    width: 15px;
+    height: 15px;
+    border:0;
+  }
+  #hautaccueil h1{ float:left; color:white;font-family:sf_cartoonist_hand_scitalic; margin-left: 12em;margin-top: 1.6em;
+font-size: 3.5em;}
+
+  #banniere_image
+  {
+      height: 450px;
+      border-radius: 6px;
+      background: url('http://localhost/Sportymates1/images/admin1.jpg');
+      position: relative;
+      box-shadow: 0px 4px 4px #1c1a19;
+      margin-bottom: 28px;
+  }
+  #banniere_description
+  {
+      position: absolute;
+      bottom: 0;
+      border-radius: 0px 0px 5px 5px;
+      width: 99.5%;
+      height: 33px;
+      padding-top: 15px;
+      padding-left: 4px;
+      background-color: rgba(24,24,24,0.8);
+      color: white;
+      font-size: 0.8em;
+  }
+
+#barrenavigation
+{
+float: left;
+width: 200px;
+border: black solid 1px;
+border-radius: 5px;
+background-color:white;
+padding-right: 3em;
+}
+
+#barrenavigation ul
+{
+  list-style: none;
+  height: 700px;
+}
+
+#boutons{
+  display: flex;
+  flex-flow: column;
+  width: 255px;
+  height: 600px;
+  margin-top: 15px;
+  border-radius: 2px;
+
+
+}
+  .Utilisateur
+  {
+    margin-bottom: 15px;
+    background: url('images/a.jpg');
+    font-family:sf_cartoonist_hand_scitalic;
+    color: black;
+    border:black;
+    height: 6em;
+    margin-left: 0.6em;
+  }
+  .Groupes
+  {
+    margin-bottom: 15px;
+    background: url('images/a.jpg');
+    font-family:sf_cartoonist_hand_scitalic;
+    color: white;
+    border:black;
+    height: 6em;
+    margin-left: 0.6em;
+  }
+  .Clubs
+  {
+    margin-bottom: 15px;
+    background: url('images/a.jpg');
+    font-family:sf_cartoonist_hand_scitalic;
+    color: white;
+    border:black;
+    height: 6em;
+    margin-left: 0.6em;
+  }
+  .Planning
+  {
+    margin-bottom: 15px;
+    background: url('images/a.jpg');
+    font-family:sf_cartoonist_hand_scitalic;
+    color: white;
+    border:black;
+    height: 6em;
+    margin-left: 0.6em;
+  }
+  .Forums
+  {
+    margin-bottom: 15px;
+    background: url('images/a.jpg');
+    font-family:sf_cartoonist_hand_scitalic;
+    color: white;
+    border:black;
+    height: 6em;
+    margin-left: 0.6em;
+  }
+  .Aide
+  {
+    margin-bottom: 15px;
+    background: url('images/a.jpg');
+    font-family:sf_cartoonist_hand_scitalic;
+    color: white;
+    border:black;
+    height: 6em;
+    margin-left: 0.6em;
+  }
+h2
+{
+    font-family:sf_cartoonist_hand_scitalic;
+    margin-bottom: 1em;
+    margin-left:1.6em;
+}
+
+.recherche
+{
+  margin-right:20px;
+  margin-left: 17em;
+  padding-top: 15px;
+}
+
+.recherche form
+{
+  padding-bottom: 2em;
+  font-family:sf_cartoonist_hand_scitalic;
+}
+.recherche input
+{
+  padding-right: 3em;
+  margin-left: 1em;
+    margin-right: 1em;
+}
