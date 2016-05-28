@@ -3,13 +3,14 @@
     <head> 
         <meta charset="utf-8"/>
         <link rel="stylesheet" type="text/css" href="styleGroupes.css"/>
+        <link rel="stylesheet" href="http://localhost:8888/Sportymates/Vue/accueil2.css" />
         <title>Nos Groupes - Sportymates </title>
         <link rel='icon' type="image/ico" href="../images/Logo1.png"/>
     </head>
 
     <body>
         <div id="bloc_page">
-            <header>
+            <header style="background-image:url(../images/Groupes.gif)">
                 <?php include("../banniere_entete.php");?>
                 <div id="Titre">
                     <h1>Groupes</h1><br>
@@ -90,40 +91,41 @@
 
 
                 <div id="ajout_recent">
+                    <?php
+                    try
+                    {
+                        $bdd = new PDO('mysql:host=localhost;dbname=sportymates;charset=utf8','root','root');
+                    }
+                    catch(Exception $e)
+                    {
+                        die('Erreur : ' . $e->getMessage());
+                    }
+
+                    $reponse = $bdd->query('SELECT nomGroupe, imgGroupe FROM groupe ORDER BY creation DESC LIMIT 0, 3');
+
+                    while($donnees = $reponse->fetch()) 
+                    {
+                    ?>
                     <figure>
-                        <a href= "running-fever.php">
-                            <img src="../images/SportA.jpg" alt="Course à pied"/>
+                        <a href="../../Vue/Groupes/modele.php?groupe=<?php echo $donnees['nomGroupe'];?>">
+                            <img src="img-Groupes/<?php echo $donnees['imgGroupe']; ?>" alt = <?php echo $donnees['nomGroupe'];?>/>
                             <figcaption>
-                                Running fever
+                                <?php echo $donnees['nomGroupe'];?>
                             </figcaption> 
                         </a>
 
                     </figure>
+                    
+                    <?php
+                    }
 
-                    <figure>
-                        <a href= "Basket-team.html">
-                            <img src="../images/SportB.jpeg" alt="Course à pied"/>
-                            <figcaption>
-                                Basket Team
-                            </figcaption> 
-                        </a>
+                    $reponse->closeCursor();
 
-                    </figure>
-
-                    <figure>
-                        <a href= "GroupeC.html">
-                            <img src="../images/SportC.jpeg" alt="SportC"/>
-                            <figcaption>
-                                Groupe C
-                            </figcaption> 
-                        </a>
-
-                    </figure>
-
+                    ?>
                 </div>
-                
-                <button type="button" name="bouton" class="bouton" id="tousGroupes" >Tous les groupes</button>
-                
+
+                <button type="button" name="bouton" class="bouton" id="tousGroupes" onclick="window.location='../../Controleur/all.php?theme=groupe'" >Tous les groupes</button>
+
             </section>
 
             <section>
