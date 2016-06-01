@@ -29,6 +29,7 @@ include("../modele/menu.php");
         </header>
 
     <?php
+
     // On indique o l'on se trouve
     $cat = (isset($_GET['cat']))?htmlspecialchars($_GET['cat']):'';
     //echo'<p><i>Vous êtes ici</i> : <a href="../vue/Forum/index.php">Index du forum</a> -->  <a href="../vue/admin.php">Administration du forum</a>';
@@ -78,7 +79,9 @@ include("../modele/menu.php");
 
     case "forum":
     //Ici forum
-    $action = isset($_GET['action']);
+    
+    $action = htmlspecialchars($_GET['action']);
+
      //On récupère la valeur de action
             switch($action) //2eme switch
             {
@@ -294,7 +297,7 @@ include("../modele/menu.php");
         }
         break;
 
-        case "droits":
+        /*case "droits":
 
         //Gestion des droits
         echo'<h1>Edition des droits</h1>';
@@ -358,9 +361,9 @@ include("../modele/menu.php");
             echo'<br /><input type="hidden" name="forum_id" value="'.$data['forum_id'].'" />
             <input type="submit" value="Envoyer"></p></form>';
             $query->CloseCursor();
-        break;
+        
         }
-
+        break;*/
 
         default://action n'est pas remplie, on affiche le menu
         echo
@@ -378,8 +381,8 @@ include("../modele/menu.php");
         <br />
         <a href="admin.php?cat=forum&amp;action=edit">Modifier un forum</a>
         <br />
-        <a href="admin.php?cat=forum&amp;action=droits">
-        Modifier les droits d un forum</a><br /></p>';
+        
+       </p>';
         break;
         }
 break;
