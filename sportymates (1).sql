@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.1.14
+-- version 4.5.5.1
 -- http://www.phpmyadmin.net
 --
 -- Client :  127.0.0.1
--- Généré le :  Lun 23 Mai 2016 à 13:51
--- Version du serveur :  5.6.17
--- Version de PHP :  5.5.12
+-- Généré le :  Lun 06 Juin 2016 à 09:28
+-- Version du serveur :  5.7.11
+-- Version de PHP :  5.6.19
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -14,7 +14,7 @@ SET time_zone = "+00:00";
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
 /*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
-/*!40101 SET NAMES utf8 */;
+/*!40101 SET NAMES utf8mb4 */;
 
 --
 -- Base de données :  `sportymates`
@@ -23,252 +23,270 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Structure de la table `club`
+-- Structure de la table `forum_categorie`
 --
 
-CREATE TABLE IF NOT EXISTS `club` (
-  `idClub` int(11) NOT NULL AUTO_INCREMENT,
-  `adresse` varchar(200) NOT NULL,
-  `telephone` varchar(12) NOT NULL,
-  `heureOuverture` time NOT NULL,
-  `heureFermeture` time NOT NULL,
-  `jourOuverture` varchar(10) NOT NULL,
-  `jourFermeture` varchar(10) NOT NULL,
-  PRIMARY KEY (`idClub`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=300 ;
+CREATE TABLE `forum_categorie` (
+  `cat_id` int(11) NOT NULL,
+  `cat_nom` varchar(30) COLLATE utf8_bin NOT NULL,
+  `cat_ordre` int(11) NOT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
 --
--- Contenu de la table `club`
+-- Contenu de la table `forum_categorie`
 --
 
-INSERT INTO `club` (`idClub`, `adresse`, `telephone`, `heureOuverture`, `heureFermeture`, `jourOuverture`, `jourFermeture`) VALUES
-(299, 'Issy les moulineaux', '', '00:00:00', '00:00:00', '', '');
+INSERT INTO `forum_categorie` (`cat_id`, `cat_nom`, `cat_ordre`) VALUES
+(3, 'Groupe', 40),
+(2, 'Sport', 20),
+(1, 'Général', 10),
+(4, 'Club', 50),
+(5, 'Evénement', 60),
+(6, 'Aide', 70);
 
 -- --------------------------------------------------------
 
 --
--- Structure de la table `commentaire`
+-- Structure de la table `forum_config`
 --
 
-CREATE TABLE IF NOT EXISTS `commentaire` (
-  `idCommentaire` int(11) NOT NULL AUTO_INCREMENT,
-  `contenu` varchar(1000) NOT NULL,
-  `dateHeure` datetime NOT NULL,
-  `nomGroupe` varchar(100) NOT NULL,
-  `idClub` int(11) NOT NULL,
-  `auteur` varchar(30) NOT NULL,
-  PRIMARY KEY (`idCommentaire`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=5 ;
+CREATE TABLE `forum_config` (
+  `config_nom` varchar(200) COLLATE utf8_bin NOT NULL,
+  `config_valeur` varchar(500) COLLATE utf8_bin NOT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+
+--
+-- Contenu de la table `forum_config`
+--
+
+INSERT INTO `forum_config` (`config_nom`, `config_valeur`) VALUES
+('avatar_maxsize', '10 00'),
+('avatar_maxh', '100 '),
+('avatar_maxl', '100 '),
+('sign_maxl', '200'),
+('auth_bbcode_sign', 'oui'),
+('pseudo_maxsize', '15'),
+('pseudo_minsize', '3'),
+('topic_par_page', '20'),
+('post_par_page', '15');
 
 -- --------------------------------------------------------
 
 --
--- Structure de la table `evenement`
+-- Structure de la table `forum_forum`
 --
 
-CREATE TABLE IF NOT EXISTS `evenement` (
-  `idEvenement` int(11) NOT NULL AUTO_INCREMENT,
-  `nom` varchar(30) NOT NULL,
-  `heureDebut` time NOT NULL,
-  `heureFin` time NOT NULL,
-  `dateDebut` date NOT NULL,
-  `dateFin` date NOT NULL,
-  `lieu` varchar(100) NOT NULL,
-  PRIMARY KEY (`idEvenement`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=5 ;
+CREATE TABLE `forum_forum` (
+  `forum_id` int(11) NOT NULL,
+  `forum_cat_id` mediumint(8) NOT NULL,
+  `forum_name` varchar(60) COLLATE utf8_general_mysql500_ci NOT NULL,
+  `forum_desc` mediumtext COLLATE utf8_general_mysql500_ci NOT NULL,
+  `forum_ordre` mediumint(8) NOT NULL,
+  `forum_last_post_id` int(11) NOT NULL,
+  `forum_topic` mediumint(8) NOT NULL,
+  `forum_post` mediumint(8) NOT NULL,
+  `auth_view` tinyint(4) NOT NULL,
+  `auth_post` tinyint(4) NOT NULL,
+  `auth_topic` tinyint(4) NOT NULL,
+  `auth_annonce` tinyint(4) NOT NULL,
+  `auth_modo` tinyint(4) NOT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_general_mysql500_ci;
 
 --
--- Contenu de la table `evenement`
+-- Contenu de la table `forum_forum`
 --
 
-INSERT INTO `evenement` (`idEvenement`, `nom`, `heureDebut`, `heureFin`, `dateDebut`, `dateFin`, `lieu`) VALUES
-(1, 'Mon test d''évènement', '00:00:00', '00:00:00', '2016-01-21', '0000-00-00', ''),
-(2, 'Mon second Evenement', '00:00:00', '00:00:00', '2016-01-24', '0000-00-00', ''),
-(3, 'Mon troisième évènement', '00:00:00', '00:00:00', '2016-01-21', '0000-00-00', ''),
-(4, 'Aujourd''hui !!', '00:00:00', '00:00:00', '2016-04-19', '0000-00-00', '');
+INSERT INTO `forum_forum` (`forum_id`, `forum_cat_id`, `forum_name`, `forum_desc`, `forum_ordre`, `forum_last_post_id`, `forum_topic`, `forum_post`, `auth_view`, `auth_post`, `auth_topic`, `auth_annonce`, `auth_modo`) VALUES
+(3, 1, 'Discussions générales', 'Ici on peut parler de tout sur tous les sujets', 40, 0, 0, 0, 0, 0, 0, 0, 0),
+(2, 1, 'Les News', 'Les news du site sont ici', 50, 25, 1, 2, 0, 0, 0, 0, 0),
+(1, 1, 'Présentation', 'Nouveau sur le forum? Venez vous présenter ici !', 60, 0, 0, 0, 0, 0, 0, 0, 0),
+(4, 4, 'Club', 'Parlez ici de vos clubs', 60, 19, 1, 1, 0, 0, 0, 0, 0),
+(5, 1, 'Autres discussions', 'Parler d\'autre chose que le sport', 50, 0, 0, 0, 0, 0, 0, 0, 0),
+(6, 5, 'Vos événements', 'Parler ici de vos événements', 10, 0, 0, 0, 0, 0, 0, 0, 0),
+(7, 6, 'Des questions ?', 'Poster les ici.', 10, 0, 0, 0, 0, 0, 0, 0, 0),
+(8, 2, 'Vos sports', 'Parler ici de vos sports', 10, 0, 0, 0, 0, 0, 0, 0, 0);
 
 -- --------------------------------------------------------
 
 --
--- Structure de la table `faitpartide`
+-- Structure de la table `forum_membres`
 --
 
-CREATE TABLE IF NOT EXISTS `faitpartide` (
-  `nomGroupe` varchar(100) NOT NULL,
-  `nomUtilisateur` varchar(30) NOT NULL,
-  PRIMARY KEY (`nomGroupe`,`nomUtilisateur`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+CREATE TABLE `forum_membres` (
+  `membre_id` int(11) NOT NULL,
+  `membre_pseudo` varchar(30) COLLATE utf8_bin NOT NULL,
+  `membre_mdp` text COLLATE utf8_bin NOT NULL,
+  `membre_email` varchar(250) COLLATE utf8_bin NOT NULL,
+  `membre_siteweb` varchar(100) COLLATE utf8_bin DEFAULT NULL,
+  `membre_avatar` varchar(100) COLLATE utf8_bin DEFAULT NULL,
+  `membre_signature` varchar(200) COLLATE utf8_bin DEFAULT NULL,
+  `membre_localisation` varchar(100) COLLATE utf8_bin DEFAULT NULL,
+  `membre_inscrit` int(11) DEFAULT NULL,
+  `membre_derniere_visite` int(11) DEFAULT NULL,
+  `membre_rang` tinyint(4) DEFAULT '2',
+  `membre_post` int(11) DEFAULT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+
+--
+-- Contenu de la table `forum_membres`
+--
+
+INSERT INTO `forum_membres` (`membre_id`, `membre_pseudo`, `membre_mdp`, `membre_email`, `membre_siteweb`, `membre_avatar`, `membre_signature`, `membre_localisation`, `membre_inscrit`, `membre_derniere_visite`, `membre_rang`, `membre_post`) VALUES
+(1, 'Dakimo', 'o8d5xc9a8', 'baptiste.sagazan@orange.fr', '', '', '', '', 1, 1, 1, 18),
+(2, 'admin', 'admin', 'admin@orange.fr', '', '', '', '', 1, 1, 3, 3),
+(23, 'amrita', 'e0c9035898dd52fc65c41454cec9c4d2', 'amrit.para@gmail.com', '', NULL, '', 'France', 0, 0, 1, 0),
+(24, 'rere', 'e0c9035898dd52fc65c41454cec9c4d2', 'muriel.parassou@gmail.com', '', NULL, '', 'France', 0, 0, 1, 0),
+(25, 'sportymates', 'b652b3edac7f2739928a88e91bdbdf61', 'sportymates.isep@gmail.com', '', NULL, '', 'France', 0, 0, 4, 0),
+(26, 'rita', 'e0c9035898dd52fc65c41454cec9c4d2', 'sasa.pa@gmail.com', '', NULL, '', 'France', 0, 0, 1, 0),
+(41, 'amrita', 'e0c9035898dd52fc65c41454cec9c4d2', 'amrit.para@gmail.com', NULL, NULL, NULL, 'France', 0, 0, 1, 0),
+(49, 'rere', 'e0c9035898dd52fc65c41454cec9c4d2611bfb37', 'tretrdfvrg@gmail.com', NULL, NULL, NULL, 'France', NULL, NULL, 2, NULL),
+(51, 'tesst', 'e0c9035898dd52fc65c41454cec9c4d2611bfb37', 'test21@gmail.com', NULL, NULL, NULL, 'France', NULL, NULL, 2, NULL);
 
 -- --------------------------------------------------------
 
 --
--- Structure de la table `groupe`
+-- Structure de la table `forum_mp`
 --
 
-CREATE TABLE IF NOT EXISTS `groupe` (
-  `nomGroupe` varchar(100) NOT NULL,
-  `leader` varchar(30) NOT NULL,
-  `nomSport` varchar(30) NOT NULL,
-  `idClub` int(11) NOT NULL,
-  `creation` datetime NOT NULL,
-  PRIMARY KEY (`nomGroupe`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
-
---
--- Contenu de la table `groupe`
---
-
-INSERT INTO `groupe` (`nomGroupe`, `leader`, `nomSport`, `idClub`, `creation`) VALUES
-('groupetest', 'Amrita', 'APP', 312, '2016-03-22 10:11:00'),
-('alpha', 'Amrita', 'APP', 312, '2016-03-22 10:11:00'),
-('running fever', 'Amrita', 'course', 302, '2016-05-07 12:03:00'),
-('Basket team', 'Nathalie', 'Basket', 300, '2016-05-07 12:05:00'),
-('Groupe C', 'Nathalie', 'marche', 303, '2016-05-07 12:05:21');
+CREATE TABLE `forum_mp` (
+  `mp_id` int(11) NOT NULL,
+  `mp_expediteur` int(11) NOT NULL,
+  `mp_receveur` int(11) NOT NULL,
+  `mp_titre` varchar(100) CHARACTER SET latin1 COLLATE latin1_general_ci NOT NULL,
+  `mp_text` text CHARACTER SET latin1 COLLATE latin1_general_ci NOT NULL,
+  `mp_time` int(11) NOT NULL,
+  `mp_lu` enum('0','1') CHARACTER SET latin1 COLLATE latin1_general_ci NOT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
 -- --------------------------------------------------------
 
 --
--- Structure de la table `membres`
+-- Structure de la table `forum_post`
 --
 
-CREATE TABLE IF NOT EXISTS `membres` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `pseudo` varchar(255) NOT NULL,
-  `mail` varchar(255) NOT NULL,
-  `motdepasse` text NOT NULL,
-  `nom` varchar(255) NOT NULL,
-  `prenom` varchar(255) NOT NULL,
-  `pays` varchar(255) NOT NULL,
-  `codepostal` int(11) NOT NULL,
-  `photodeprofil` varchar(255) NOT NULL,
-  `Sexe` enum('Homme','Femme') DEFAULT NULL,
-  `datenaissance` date DEFAULT NULL,
-  `numtel` int(11) DEFAULT NULL,
-  `value` enum('1','2','3','4') NOT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=20 ;
+CREATE TABLE `forum_post` (
+  `post_id` int(11) NOT NULL,
+  `post_createur` int(11) DEFAULT NULL,
+  `post_texte` text CHARACTER SET latin1 COLLATE latin1_general_ci,
+  `post_time` int(11) DEFAULT NULL,
+  `topic_id` int(11) NOT NULL,
+  `post_forum_id` int(11) NOT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
 --
--- Contenu de la table `membres`
+-- Contenu de la table `forum_post`
 --
 
-INSERT INTO `membres` (`id`, `pseudo`, `mail`, `motdepasse`, `nom`, `prenom`, `pays`, `codepostal`, `photodeprofil`, `Sexe`, `datenaissance`, `numtel`, `value`) VALUES
-(2, 'rere', 'sasa.pa@gmail.com', 'e0c9035898dd52fc65c41454cec9c4d2611bfb37', '', '', '', 0, '', '', NULL, NULL, '1'),
-(4, 'Amrita', 'aa.kvo@gmail.com', 'e0c9035898dd52fc65c41454cec9c4d2611bfb37', 'ahh', 'ana', '', 0, '4.png', '', NULL, NULL, '1');
+INSERT INTO `forum_post` (`post_id`, `post_createur`, `post_texte`, `post_time`, `topic_id`, `post_forum_id`) VALUES
+(19, 1, 'ergqdfbq', 1464428707, 0, 4),
+(18, 1, 'blabla', 1464428535, 0, 7),
+(25, 12, 'Bienvenue !!', 1464470409, 6, 2),
+(26, 20, 'hello guys', 1464630764, 7, 7),
+(24, 12, 'Bienvenue à tous!', 1464470259, 6, 2);
 
 -- --------------------------------------------------------
 
 --
--- Structure de la table `noterclub`
+-- Structure de la table `forum_topic`
 --
 
-CREATE TABLE IF NOT EXISTS `noterclub` (
-  `idClub` int(11) NOT NULL,
-  `nomUtilisateur` varchar(30) NOT NULL,
-  `note` enum('1','2','3','4','5') NOT NULL,
-  PRIMARY KEY (`idClub`,`nomUtilisateur`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
-
--- --------------------------------------------------------
-
---
--- Structure de la table `notergroupe`
---
-
-CREATE TABLE IF NOT EXISTS `notergroupe` (
-  `nomGroupe` varchar(100) NOT NULL,
-  `nomUtilisateur` varchar(30) NOT NULL,
-  `note` enum('1','2','3','4','5') NOT NULL,
-  PRIMARY KEY (`nomGroupe`,`nomUtilisateur`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
-
--- --------------------------------------------------------
+CREATE TABLE `forum_topic` (
+  `topic_id` int(11) NOT NULL,
+  `forum_id` int(11) NOT NULL,
+  `topic_titre` char(60) CHARACTER SET latin1 COLLATE latin1_general_ci NOT NULL,
+  `topic_createur` int(11) DEFAULT NULL,
+  `topic_vu` mediumint(8) DEFAULT NULL,
+  `topic_time` int(11) DEFAULT NULL,
+  `topic_genre` varchar(30) CHARACTER SET latin1 COLLATE latin1_general_ci DEFAULT NULL,
+  `topic_last_post` int(11) DEFAULT NULL,
+  `topic_first_post` int(11) DEFAULT NULL,
+  `topic_post` mediumint(8) DEFAULT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
 --
--- Structure de la table `participe`
+-- Contenu de la table `forum_topic`
 --
 
-CREATE TABLE IF NOT EXISTS `participe` (
-  `nomUtilisateur` varchar(30) NOT NULL,
-  `idEvenement` int(11) NOT NULL,
-  PRIMARY KEY (`idEvenement`,`nomUtilisateur`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
-
--- --------------------------------------------------------
+INSERT INTO `forum_topic` (`topic_id`, `forum_id`, `topic_titre`, `topic_createur`, `topic_vu`, `topic_time`, `topic_genre`, `topic_last_post`, `topic_first_post`, `topic_post`) VALUES
+(6, 2, 'Test', 12, 7, 1464470259, 'Message', 25, 24, 1),
+(7, 7, 'hey', 20, 4, 1464630764, 'Message', 26, 26, 0);
 
 --
--- Structure de la table `recuperation`
+-- Index pour les tables exportées
 --
 
-CREATE TABLE IF NOT EXISTS `recuperation` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `mail` varchar(255) NOT NULL,
-  `code` int(11) NOT NULL,
-  `confirme` int(11) NOT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=3 ;
-
--- --------------------------------------------------------
+--
+-- Index pour la table `forum_categorie`
+--
+ALTER TABLE `forum_categorie`
+  ADD PRIMARY KEY (`cat_id`),
+  ADD UNIQUE KEY `cat_ordre` (`cat_ordre`);
 
 --
--- Structure de la table `rubrique`
+-- Index pour la table `forum_forum`
 --
-
-CREATE TABLE IF NOT EXISTS `rubrique` (
-  `idRubrique` int(11) NOT NULL AUTO_INCREMENT,
-  `reponse` text NOT NULL,
-  `question` text NOT NULL,
-  `categorie` varchar(15) NOT NULL,
-  PRIMARY KEY (`idRubrique`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=24 ;
+ALTER TABLE `forum_forum`
+  ADD PRIMARY KEY (`forum_id`);
 
 --
--- Contenu de la table `rubrique`
+-- Index pour la table `forum_membres`
 --
-
-INSERT INTO `rubrique` (`idRubrique`, `reponse`, `question`, `categorie`) VALUES
-(1, 'Pour modifier votre mot de passe vous devez vous connecter, puis accéder à votre profil. Ensuite vous pouvez accéder à la fonctionnalité permettant cette possibilité.', 'Comment modifier mon mot de passe ?', 'Compte'),
-(2, 'Pour récupérer votre mot de passe, cliquez sur "connexion" puis sur "mot de passe oublié". Vous devrez ensuite saisir l''adresse mail liée à votre compte, à laquelle sera envoyé un mail permettant d''établir un nouveau mot de passe.', 'Comment récupérer mon mot de passe ?', 'Compte'),
-(3, 'En cas de piratage, contactez au plus vite un administrateur en utilisant la page "nous contacter".', 'Mon compte a été piraté, que faire ?', 'Compte'),
-(4, 'Connectez vous sur le site, puis accédez à votre profil et cliquez sur "modifier mon profil" pour mettre à jour vos données.', 'Comment modifier les informations de mon profil ?', 'Compte'),
-(5, 'Pour vous déconnecter il suffit de cliquez sur "se déconnecter" en haut à droite de chaque page.', 'Comment puis-je me déconnecter ?', 'Compte'),
-(6, 'Pour rejoindre un groupe il faut cliquer sur le groupe, puis cliquer sur le bouton "rejoindre le groupe".', 'Comment puis-je rejoindre un groupe ?', 'groupe'),
-(7, 'Pour devenir leader d''un groupe il faut soit l''avoir créer, soit demander au leader actuel qu''il vous désigne comme nouveau leader. Attention il ne peut y avoir qu''un leader par groupe.', 'Comment puis-je devenir leader d''un groupe ?', 'groupe'),
-(8, 'Pour créer un groupe il faut vous rendre sur la page de navigation des groupes, puis cliquer sur le bouton "créer un groupe".', 'Comment puis-je créer un groupe ?', 'groupe'),
-(9, 'Pour pouvoir modifier les données relatives à un groupe il faut être leader de ce dernier. Si c''est le cas alors il faut accéder à la page de groupe et cliquer sur "modifier les informations".', 'Comment modifier les informations d''un groupe ?', 'groupe'),
-(10, 'Pour quitter un groupe il vous suffit de vous rendre sur la page du groupe, puis de cliquez sur le bouton "quitter le groupe".', 'Comment faire pour quitter un groupe ?', 'groupe'),
-(11, 'Pour participer à un évènement il suffit de se rendre sur la page de l''évènement puis de cliquer sur "je participe".', 'Comment participer à un évènement ?', 'evenement'),
-(12, 'Pour organiser un évènement il vous suffit de vous rendre sur la page de navigation des évènements puis de cliquer sur "Créer un évènement".', 'Comment organiser un évènement ?', 'evenement'),
-(13, 'Pour modifier les informations d''un évènement vous devez en être l''organisateur. Rendez-vous sur la page de votre évènement puis cliquer sur "modifier les informations".', 'Comment modifier les informations d''un évènement ?', 'evenement'),
-(14, '', '', 'evenement'),
-(15, 'Pour créer un sujet sur le forum vous devez être connecté, puis une fois sur la page du forum, cliquer sur nouveau sujet.', 'Comment créer un sujet sur le forum ?', 'forum'),
-(16, 'Certains commentaires peuvent être supprimés par un modérateur si leur contenu est jugé inapproprié.', 'Pourquoi certains de mes commentaires disparaissent ?', 'forum'),
-(17, 'Pour pratiquer un sport, il vous suffit de rejoindre un groupe qui pratique ce sport, pour être tenu au courant des entrainements que le groupe organise.', 'Comment pratiquer un sport présent sur le site ?', 'sport'),
-(18, 'Si vous voulez proposer un nouveau sport aux utilisateurs du site il faut contacter un administrateur du site. Il vous sera demandé le club dans lequel vous comptez organiser les entraînements. Une fois qu''un administrateur du site aura valider la disponibilité de ce sport, vous pourrez créer un groupe et commencer la pratique de ce sport.', 'Comment ajouter un sport non présent sur le site ?', 'sport'),
-(19, 'Il se peut qu''un sport ne puisse plus être proposé aux utilisateurs si plus aucun groupe n''est capable d''assurer une séance.', 'Pourquoi un sport a disparu de la liste des sports proposés par le site ?', 'sport'),
-(20, 'Pour obtenir des informations sur un club partenaires il suffit de se rendre sur sa page.', 'Comment obtenir les informations d''un club ?', 'club'),
-(21, 'Pour mettre les informations ''un club à jour, il faut transmettre les nouvelles informations à un administrateur du site, qui après les avoir validées, les mettra à jour.', 'Comment mettre à jour les informations lié à un club ?', 'club'),
-(22, 'Si vous parvenez à convaincre un club de faire un partenariat avec notre site, il vous suffit de nous contacter pour que nous puissions prendre contact avec le club. Si le partenariat se fait, une nouvelle page sera dédiée à ce club.', 'Comment ajouter un club partenaire ?', 'club');
-
--- --------------------------------------------------------
+ALTER TABLE `forum_membres`
+  ADD PRIMARY KEY (`membre_id`);
 
 --
--- Structure de la table `sport`
+-- Index pour la table `forum_mp`
 --
-
-CREATE TABLE IF NOT EXISTS `sport` (
-  `nomSport` varchar(30) NOT NULL,
-  `type` enum('Collectif','Individuel') NOT NULL,
-  PRIMARY KEY (`nomSport`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+ALTER TABLE `forum_mp`
+  ADD PRIMARY KEY (`mp_id`);
 
 --
--- Contenu de la table `sport`
+-- Index pour la table `forum_post`
+--
+ALTER TABLE `forum_post`
+  ADD PRIMARY KEY (`post_id`);
+
+--
+-- Index pour la table `forum_topic`
+--
+ALTER TABLE `forum_topic`
+  ADD PRIMARY KEY (`topic_id`),
+  ADD UNIQUE KEY `topic_last_post` (`topic_last_post`);
+
+--
+-- AUTO_INCREMENT pour les tables exportées
 --
 
-INSERT INTO `sport` (`nomSport`, `type`) VALUES
-('Waterpolo', '');
-
+--
+-- AUTO_INCREMENT pour la table `forum_categorie`
+--
+ALTER TABLE `forum_categorie`
+  MODIFY `cat_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+--
+-- AUTO_INCREMENT pour la table `forum_forum`
+--
+ALTER TABLE `forum_forum`
+  MODIFY `forum_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+--
+-- AUTO_INCREMENT pour la table `forum_membres`
+--
+ALTER TABLE `forum_membres`
+  MODIFY `membre_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=52;
+--
+-- AUTO_INCREMENT pour la table `forum_mp`
+--
+ALTER TABLE `forum_mp`
+  MODIFY `mp_id` int(11) NOT NULL AUTO_INCREMENT;
+--
+-- AUTO_INCREMENT pour la table `forum_post`
+--
+ALTER TABLE `forum_post`
+  MODIFY `post_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
+--
+-- AUTO_INCREMENT pour la table `forum_topic`
+--
+ALTER TABLE `forum_topic`
+  MODIFY `topic_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
