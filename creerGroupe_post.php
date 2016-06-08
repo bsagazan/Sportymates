@@ -1,12 +1,7 @@
 <?php
-try
-{
-    $bdd = new PDO('mysql:host=localhost;dbname=sportymates;charset=utf8','root','root', array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION));
-}
-catch(Exception $e)
-{
-    die('Erreur : ' . $e->getMessage());
-}
+session_start();
+require_once("../modele/connect.php");
+
 $req = $bdd->prepare('INSERT INTO groupe(nomGroupe, leader, nomSport, idClub, creation, ville, niveau, nbreMax, description,imgGroupe) VALUES (:nomGroupe,:leader,:nomSport,:idClub,NOW(),:ville,:niveau, :nbreMax, :description,:imgGroupe)');
 
 if(isset($_FILES['imgGroupe']) AND $_FILES['imgGroupe']['error'] == 0)
@@ -22,14 +17,16 @@ if(isset($_FILES['imgGroupe']) AND $_FILES['imgGroupe']['error'] == 0)
         {
             $nom = strtolower(str_replace(' ','-',$_POST['nomGroupe']));
             $adresse = $nom.'.'.$extension_upload;
-            move_uploaded_file($_FILES['imgGroupe']['tmp_name'], '../../Vue/Groupes/img-Groupes/'.$adresse);
+            move_uploaded_file($_FILES['imgGroupe']['tmp_name'], '../vue/groupe/img-groupe/'.$adresse);
         }
-    }   
+    }
+}else{
+    $adresse ="default.png";
 }
 
 $req->execute(array(
     'nomGroupe'=> $_POST['nomGroupe'],
-    'leader'=> $_POST['nomLeader'],
+    'leader'=> $_SESSION['pseudo'],
     'nomSport'=> $_POST['sport'],
     'idClub'=>$_POST['idClub'],
     'ville'=>$_POST['ville'],
@@ -38,9 +35,5 @@ $req->execute(array(
     'description'=>$_POST['description'],
     'imgGroupe' =>$adresse
 ));
-header('Location: ../../Vue/Groupes/modele.php?groupe='.$_POST['nomGroupe']);
+header('Location: http://localhost/Sportymates/vue/groupe/pageGroupe.php?identifiant='.$_POST['nomGroupe']);
 ?>
-
-
-
-

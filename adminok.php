@@ -9,15 +9,15 @@ include("../modele/menu.php");
 <body>
 	<div id='wrapper'>
         <header style="background-image:url(../images/activites.jpg)">
-          <?php
-          if(empty($_SESSION['pseudo'])){
-            include("banniere_entete.php");
-            include("nav.php");
-          }else{
-            include("banniere_entete2.php");
-            include("nav.php");
-          }
-          ?>
+					<?php
+					if(empty($_SESSION['pseudo'])){
+						include("../entete.php");
+						include("../nav.php");
+					}else{
+						include("../entete2.php");
+						include("../nav.php");
+					}
+					?>
       </header>
 <?php
 $cat = htmlspecialchars($_GET['cat']); //on récupère dans l'url la variable cat
@@ -44,24 +44,20 @@ case "config":
     $query->CloseCursor();
     //Et le message !
     echo'<br /><br />Les nouvelles configurations ont été mises à jour !<br />
-    Cliquez <a href="admin.php">ici</a> pour revenir à l administration';
+    Cliquez <a href="admin1.php">ici</a> pour revenir à l administration';
 break;
-
 case "forum":
     //Ici forum
     $action = htmlspecialchars($_GET['action']); //On récupère la valeur de action
     switch($action) //2ème switch
     {
     case "creer":
-
         //On commence par les forums
     if ($_GET['c'] == "f")
     {
         $titre = $_POST['nom'];
         $desc = $_POST['desc'];
         $cat = (int) $_POST['cat'];
-
-
         $query=$bdd->prepare('INSERT INTO forum_forum (forum_cat_id, forum_name, forum_desc)
         VALUES (:cat, :titre, :desc)');
             $query->bindValue(':cat',$cat,PDO::PARAM_INT);
@@ -69,7 +65,7 @@ case "forum":
             $query->bindValue(':desc',$desc,PDO::PARAM_STR);
             $query->execute();
         echo'<br /><br />Le forum a été créé !<br />
-        Cliquez <a href="admin.php">ici</a> pour revenir à l administration';
+        Cliquez <a href="admin1.php">ici</a> pour revenir à l administration';
         $query->CloseCursor();
         }
         //Puis par les catégories
@@ -79,24 +75,19 @@ case "forum":
             $query=$bdd->prepare('INSERT INTO forum_categorie (cat_nom) VALUES (:titre)');
             $query->bindValue(':titre',$titre, PDO::PARAM_STR);
             $query->execute();
-            echo'<p>La catégorie a été créée !<br /> Cliquez <a href="admin.php">ici</a>
+            echo'<p>La catégorie a été créée !<br /> Cliquez <a href="admin1.php">ici</a>
             pour revenir à l administration</p>';
         $query->CloseCursor();
         }
     break;
-
-
     case "edit":
         echo'<h1>Edition d un forum</h1>';
-
         if($_GET['e'] == "editf")
         {
             //Récupération d'informations
-
         $titre = $_POST['nom'];
         $desc = $_POST['desc'];
         $cat = (int) $_POST['depl'];
-
             //Vérification
             $query=$bdd->prepare('SELECT COUNT(*)
             FROM forum_forum WHERE forum_id = :id');
@@ -105,8 +96,6 @@ case "forum":
             $forum_existe=$query->fetchColumn();
             $query->CloseCursor();
             if ($forum_existe == 0) erreur(ERR_FOR_EXIST);
-
-
             //Mise à jour
             $query=$bdd->prepare('UPDATE forum_forum
             SET forum_cat_id = :cat, forum_name = :name, forum_desc = :desc
@@ -118,16 +107,13 @@ case "forum":
             $query->execute();
             $query->CloseCursor();
             //Message
-            echo'<p>Le forum a été modifié !<br />Cliquez <a href="admin.php">ici</a>
+            echo'<p>Le forum a été modifié !<br />Cliquez <a href="admin1.php">ici</a>
             pour revenir à l administration</p>';
-
         }
-
         elseif($_GET['e'] == "editc")
         {
             //Récupération d'informations
             $titre = $_POST['nom'];
-
             //Vérification
             $query=$bdd->prepare('SELECT COUNT(*)
             FROM forum_categorie WHERE cat_id = :cat');
@@ -136,7 +122,6 @@ case "forum":
             $cat_existe=$query->fetchColumn();
             $query->CloseCursor();
             if ($cat_existe == 0) erreur(ERR_CAT_EXIST);
-
             //Mise à jour
             $query=$bdd->prepare('UPDATE forum_categorie
             SET cat_nom = :name WHERE cat_id = :cat');
@@ -144,24 +129,19 @@ case "forum":
             $query->bindValue(':cat',(int) $_POST['cat'],PDO::PARAM_INT);
             $query->execute();
             $query->CloseCursor();
-
             //Message
             echo'<p>La catégorie a été modifiée !<br />
-            Cliquez <a href="admin.php">ici</a>
+            Cliquez <a href="admin1.php">ici</a>
             pour revenir à l administration</p>';
-
         }
-
        elseif($_GET['e'] == "ordref")
         {
             //On récupère les id et l'ordre de tous les forums
             $query=$bdd->query('SELECT forum_id, forum_ordre FROM forum_forum');
-
             //On boucle les résultats
             while($data= $query->fetch())
             {
                 $ordre = (int) $_POST[$data['forum_id']];
-
                 //Si et seulement si l'ordre est différent de l'ancien, on le met à jour
                 if ($data['forum_ordre'] != $ordre)
                 {
@@ -176,20 +156,16 @@ case "forum":
         $query->CloseCursor();
         //Message
         echo'<p>L ordre a été modifié !<br />
-        Cliquez <a href="admin.php">ici</a> pour revenir à l administration</p>';
+        Cliquez <a href="admin1.php">ici</a> pour revenir à l administration</p>';
         }
-
        elseif($_GET['e'] == "ordrec")
         {
-
             //On récupère les id et les ordres de toutes les catégories
             $query=$bdd->query('SELECT cat_id, cat_ordre FROM forum_categorie');
-
             //On boucle le tout
             while($data = $query->fetch())
             {
                 $ordre = (int) $_POST[$data['cat_id']];
-
                 //On met à jour si l'ordre a changé
                 if($data['cat_ordre'] != $ordre)
                 {
@@ -202,10 +178,9 @@ case "forum":
                 }
             }
         echo'<p>L ordre a été modifié !<br />
-        Cliquez <a href="admin.php">ici</a> pour revenir à l administration</p>';
+        Cliquez <a href="admin1.php">ici</a> pour revenir à l administration</p>';
         }
     break;
-
     /*case "droits":
         //Récupération d'informations
         $auth_view = (int) $_POST['auth_view'];
@@ -213,7 +188,6 @@ case "forum":
         $auth_topic = (int) $_POST['auth_topic'];
         $auth_annonce = (int) $_POST['auth_annonce'];
         $auth_modo = (int) $_POST['auth_modo'];
-
         //Mise à jour
         $query=$bdd->prepare('UPDATE forum_forum
         SET auth_view = :view, auth_post = :post, auth_topic = :topic,
@@ -226,7 +200,6 @@ case "forum":
         $query->bindValue(':id',(int) $_POST['forum_id'],PDO::PARAM_INT);
         $query->execute();
         $query->CloseCursor();
-
         //Message
         echo'<p>Les droits ont été modifiés !<br />
         Cliquez <a href="admin.php">ici</a> pour revenir à l administration</p>';
@@ -236,7 +209,7 @@ break;
 }
 ?>
 <?php
-include('bas.php');
+include('../bas.php');
 ?>
 </div>
 </body>

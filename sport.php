@@ -1,71 +1,18 @@
-<!DOCTYPE html>
+<?php
+//Connexion à la BDD
+require_once("../modele/connect.php");
+//require_once("../Modele/Aide/rubrique.php");
 
-<html>
-	<head>
-		<meta charset="utf-8"/>
-		<title>Sportymates</title>
-		<link rel="stylesheet" href="rubrique.css"/>
-		<link rel="icon" type="image/ico" href=images/logo3.png />
-	</head>
+$sport = $_GET['sport'];
+if (isset($sport)){
+    $rep  = $bdd->query('SELECT descriptionSport FROM sport WHERE nomSport="'.$sport.'"');
+    $rep1 = $bdd->query('SELECT imgEvenement,nom FROM evenement WHERE sports="'.$sport.'" ORDER BY dateDebut AND dateDebut>CURDATE() LIMIT 3');
+    $rep2 = $bdd->query('SELECT imgSports FROM sport WHERE nomSport="'.$sport.'"');
+    $rep3 = $bdd->query('SELECT imgGroupe,nomGroupe FROM groupe WHERE nomSport="'.$sport.'" ORDER BY creation DESC LIMIT 3');
 
-	<body>
+    include("../vue/sport/pageSport.php");
+}else{
+    include_once("../vue/sport/allSport.php");
+}
 
-		<header>
-
-			<?php include ("haut.php.php"); ?>
-
-		</header>
-
-	<section id=menu>
-		<a href="pageAide.php.php">
-		<img src="images/Fleche retour.jpg" alt="Fleche retour" class=img>
-		</a>
-		<p class=espace></p>
-		<a href="accueilv2.html">
-		<p class=accueil>Retour à l'accueil</p>
-		</a>
-	</section>
-
-	<section id=recherche>
-		<p id=question>En quoi pouvons-nous vous aidez ?</p>
-		<input type='text' id='barre' name='barre' placeholder="Tapez ici les mots-clés de votre requête." size="30" maxlength="50" />
-	</section>
-
-	<section id=FAQ>
-		<?php
-			try
-				{
-    			$bdd = new PDO('mysql:host=localhost;dbname=sportymates;charset=utf8', 'Vincent', '');
-    			$bdd->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-				}
-
-			catch (Exception $e)
-				{
-        		die('Erreur : ' . $e->getMessage());
-				}
-		
-		$reponse = $bdd->query('SELECT * FROM rubrique WHERE categorie = "sport"');
-
-		while ($donnees = $reponse->fetch()) {
-				?>
-
-				<dl>
-					<dt class=questionFAQ><?php echo $donnees["question"]; ?></dt>
-					<dd class=reponseFAQ><?php echo $donnees["reponse"]; ?></dd>
-				</dl>
-
-			<?php
-			}
-
-		$reponse->closeCursor();
-		?>
-
-	</section>
-
-		<footer>
-			
-			<?php include ("bas.php") ?>
-
-		</footer>
-
-	</body>
+?>

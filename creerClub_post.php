@@ -1,7 +1,7 @@
 <?php
 require_once("../modele/connect.php");
 
-$req = $bdd->prepare('INSERT INTO club( adresse, telephone, heureOuverture, heureFermeture, jourOuverture, jourFermeture, description,nomClub, imgClub) VALUES (:adresse,:telephone,:heureOuverture,:heureFermeture,:jourOuverture, :jourFermeture,:description,:nomClub,:imgClub)');
+$req = $bdd->prepare('INSERT INTO club( adresse, telephone, heureOuverture, heureFermeture, jourOuverture, jourFermeture, description,nomClub, imgClub,creation) VALUES (:adresse,:telephone,:heureOuverture,:heureFermeture,:jourOuverture, :jourFermeture,:description,:nomClub,:imgClub,NOW())');
 
 if(isset($_FILES['imgClub']) AND $_FILES['imgClub']['error'] == 0)
 {
@@ -16,9 +16,11 @@ if(isset($_FILES['imgClub']) AND $_FILES['imgClub']['error'] == 0)
         {
             $nom = strtolower(str_replace(' ','-',$_POST['nomClub']));
             $adresse = $nom.'.'.$extension_upload;
-            move_uploaded_file($_FILES['imgClub']['tmp_name'], 'Clubs/img-Clubs/'.$adresse);
+            move_uploaded_file($_FILES['imgClub']['tmp_name'], '../vue/club/img-club/'.$adresse);
         }
     }
+}else{
+    $adresse ="default.png";
 }
 
 $req->execute(array(
@@ -32,5 +34,5 @@ $req->execute(array(
     'nomClub'=> $_POST['nomClub'],
     'imgClub' =>$adresse
 ));
-header('Location: pageclub.php?identifiant='.$_POST['nomClub']);
+header('Location: http://localhost/Sportymates/vue/club/pageClub.php?identifiant='.$_POST['nomClub']);
 ?>

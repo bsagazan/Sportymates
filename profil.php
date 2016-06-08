@@ -1,6 +1,6 @@
 <?php
 session_start();
-$bdd = new PDO('mysql:host=localhost;dbname=sportymates', 'root', '');
+require_once("../modele/connect.php");
 
 if(isset($_GET['id']) AND $_GET['id'] > 0) {
    $getid = intval($_GET['id']);
@@ -12,14 +12,14 @@ if(isset($_GET['id']) AND $_GET['id'] > 0) {
    <head>
       <title>Mon profil</title>
       <meta charset="utf-8">
-      <link rel="stylesheet" href="http://localhost/Sportymates1/style/accueil2.css" />
-      <link rel="stylesheet" href="http://localhost/Sportymates1/style/profil.css" />
+      <link rel="stylesheet" href="http://localhost/Sportymates/style/general.css" />
+      <link rel="stylesheet" href="http://localhost/Sportymates/style/profil.css" />
    </head>
    <body>
      <div id='wrapper'>
-       <header style="background-image:url(../images/profil3.jpg)">
+       <header style="background-image:url(http://localhost/Sportymates/images/profil3.jpg)">
            <?php
-           include("../vue/banniere_entete2.php");
+           include("../vue/entete2.php");
            include("../vue/nav.php");
            ?>
        </header>
@@ -31,7 +31,7 @@ if(isset($_GET['id']) AND $_GET['id'] > 0) {
          if(!empty($userinfo['photodeprofil']))
          {
           ?>
-          <img width="150" src="membres/photodeprofil/<?php echo $userinfo['photodeprofil'];?>"/>
+          <img width="150" src="../vue/membre/photodeprofil/<?php echo $userinfo['photodeprofil'];?>"/>
          <?php
           }
          ?>
@@ -98,9 +98,10 @@ if(isset($_GET['id']) AND $_GET['id'] > 0) {
          if(isset($_SESSION['id']) AND $userinfo['id'] == $_SESSION['id']) {
          ?>
          <br />
-         <input class="boutons" type="submit" value="Editer mon profil" onClick="window.location = 'editionprofil.php'"></code>
-         <input class="boutons" type="submit" value="Se déconnecter" onClick="window.location = 'deconnexion.php'"></code>
-         <input class="boutons" type="submit" value="Retourner à l'accueil" onClick="window.location = '../vue/accueilv3.php'"></code>
+         <input class="boutons" type="submit" value="Données personnelles" onClick="window.location = <?php"http://localhost/Sportymates/controleur/profil.php?id=".$_SESSION['id']?>"></code>
+         <input class="boutons" type="submit" value="Mes groupes,clubs,sports" onClick="window.location = <?php"http://localhost/Sportymates/controleur/profil.php?donnees=".$_SESSION['id']?>"></code>
+         <input class="boutons" type="submit" value="Planning" onClick="window.location = 'http://localhost/Sportymates/vue/calendrier.php'"></code>
+         <input class="boutons" type="submit" value="Editer mon profil" onClick="window.location = 'http://localhost/Sportymates/controleur/editionprofil.php'"></code>
 
          <?php
          }

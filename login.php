@@ -22,6 +22,11 @@ if(isset($_POST['Inscription'])) {
 			$nomlength = strlen($nom);
 			$prenomlength = strlen($prenom);
 			if($pseudolength <= 30) {
+        $reqpseudo = $bdd->prepare("SELECT pseudo FROM membres WHERE pseudo = :pseudo");
+        $reqpseudo->bindValue('pseudo', $pseudo, PDO::PARAM_STR);
+        $reqpseudo->execute();
+        $pseudoexist = $reqpseudo->rowCount();
+        if($pseudoexist == 0){
          if($mail == $mail2) {
             if(filter_var($mail, FILTER_VALIDATE_EMAIL)) {
                $reqmail = $bdd->prepare("SELECT * FROM membres WHERE mail = ?");
@@ -38,7 +43,7 @@ if(isset($_POST['Inscription'])) {
                             $key .= mt_rand(0,9);
                             }
         		             $insertmbr = $bdd->query("INSERT INTO membres(pseudo, mail, motdepasse,nom,prenom,pays,codepostal,sexe,confirmkey,confirme) VALUES('$pseudo', '$mail', '$mdp', '$nom', '$prenom', '$pays', '$codepostal', '$sexe','$key', '0')");
-                         $insertmbr1 = $bdd->query("INSERT INTO forum_membres(membre_pseudo, membre_mdp, membre_email, membre_localisation) VALUES('$membre_pseudo', '$membre_mdp', '$membre_email', '$membre_localisation')");
+                         $insertmbr1 = $bdd->query("INSERT INTO forum_membres(membre_pseudo, membre_mdp, membre_email, membre_localisation,membre_inscrit) VALUES('$membre_pseudo', '$membre_mdp', '$membre_email', '$membre_localisation',NOW())");
 
                           $header="MIME-Version: 1.0\r\n";
                           $header.='From:"sportymates"<support@sportymates.com>'."\n";
@@ -78,6 +83,9 @@ if(isset($_POST['Inscription'])) {
          } else {
              echo "Vos adresses mail ne correspondent pas ! <a href='http://localhost/Sportymates/vue/membre/formulaireinscription.php'>Retour à la page inscription!!</a>";
          }
+       } else {
+            echo " Pseudo déja utilisé! <a href='http://localhost/Sportymates/vue/membre/formulaireinscription.php'>Retour à la page inscription!!</a>";
+       }
       } else {
            echo "Votre pseudo ne doit pas dépasser 30 caractères! <a href='http://localhost/Sportymates/vue/membre/formulaireinscription.php'>Retour à la page inscription!!</a>";
       }
